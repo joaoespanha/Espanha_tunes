@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import Search from './pages/Search';
 import Album from './pages/Album';
@@ -9,21 +9,52 @@ import ProfileEdit from './ProfileEdit';
 import NotFound from './NotFound';
 
 class App extends React.Component {
-  render() {
-    return (
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      handleInputChange: this.handleInputChange,
+    };
+  }
 
+  handleInputChange = ({ target }) => {
+    const { name, value } = target;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  changeLoading = () => {
+    const { loading } = this.state;
+    this.setState({ loading: !loading });
+  }
+
+  render() {
+    const {
+      handleInputChange,
+      loading,
+    } = this.state;
+    return (
       <main>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={ Login } />
-            <Route path="/search" component={ Search } />
-            <Route path="/album/:id" component={ Album } />
-            <Route path="/favorites" component={ Favorites } />
-            <Route path="/profile" exact component={ Profile } />
-            <Route path="/profile/edit" component={ ProfileEdit } />
-            <Route path="" component={ NotFound } />
-          </Switch>
-        </BrowserRouter>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={ (props) => (<Login
+              { ... props }
+              handleInputChange={ handleInputChange }
+              loading={ loading }
+              changeLoading={ this.changeLoading }
+            />) }
+          />
+          <Route path="/search" component={ Search } />
+          <Route path="/album/:id" component={ Album } />
+          <Route path="/favorites" component={ Favorites } />
+          <Route path="/profile" exact component={ Profile } />
+          <Route path="/profile/edit" component={ ProfileEdit } />
+          <Route path="" component={ NotFound } />
+        </Switch>
       </main>
 
     );

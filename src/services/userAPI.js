@@ -22,7 +22,7 @@ const simulateRequest = (response) => (callback) => {
   }, TIMEOUT);
 };
 
-// It tests if ther is an user with the func readUser, if there is one it returns an obeject with user info
+// It tests if ther is an user with the func readUser, if there is one it returns an object with user info
 // If it doesn't find one it returns an empty Obj
 // It is assync - returns a promise that needs to be solved
 export const getUser = () => new Promise((resolve) => {
@@ -53,7 +53,7 @@ export const createUser = (user) => new Promise((resolve) => {
 });
 
 // It updates an user's info with the func saveUser
- // It is assync - returns a promise that needs to be solved
+// It is assync - returns a promise that needs to be solved
 export const updateUser = (updatedUser) => new Promise((resolve) => {
   saveUser({ ...updatedUser });
   simulateRequest(SUCCESS_STATUS)(resolve);

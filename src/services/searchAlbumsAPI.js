@@ -8,7 +8,7 @@ const searchAlbumsAPI = async (artist) => {
   // It makes the requisition for the API
   const APIResponse = await fetch(getAlbumsAPI);
 
-  // It turns the response into an Js object and destructures the key result
+  // It turns the response into an Js object and destructures the key results
   const { results } = await APIResponse.json();
 
   // It gets the values inside each key
