@@ -8,17 +8,23 @@ class Login extends React.Component {
     super(props);
     this.state = {
       userName: '',
+      loading: false,
       isBtnDisabled: true,
     };
   }
 
+  changeLoading = () => {
+    const { loading } = this.state;
+    this.setState({ loading: !loading });
+  }
+
   handleLogin = async () => {
-    const { history, changeLoading } = this.props;
+    const { history } = this.props;
     const { userName } = this.state;
 
     const loginObj = { name: userName };
 
-    changeLoading();
+    this.changeLoading();
 
     await createUser(loginObj);
     history.push('/search');
@@ -35,10 +41,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const {
-      loading,
-    } = this.props;
-    const { isBtnDisabled, userName } = this.state;
+    const { isBtnDisabled, userName, loading } = this.state;
     if (loading) return <Loading />;
     return (
       <div data-testid="page-login">

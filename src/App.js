@@ -12,7 +12,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
       handleInputChange: this.handleInputChange,
     };
   }
@@ -25,15 +24,9 @@ class App extends React.Component {
     });
   }
 
-  changeLoading = () => {
-    const { loading } = this.state;
-    this.setState({ loading: !loading });
-  }
-
   render() {
     const {
       handleInputChange,
-      loading,
     } = this.state;
     return (
       <main>
