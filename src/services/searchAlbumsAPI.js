@@ -2,7 +2,7 @@
 const searchAlbumsAPI = async (artist) => {
   // It encondes the received string to a format that the itune`s Api requires
   const artistNameURL = encodeURI(artist).replaceAll('%20', '+');
-  // Sets the url with the variable artist name as the param to bee search
+  // Sets the url with the variable artist name as the param to be search
   const getAlbumsAPI = `https://itunes.apple.com/search?entity=album&term=${artistNameURL}&attribute=allArtistTerm`;
 
   // It makes the requisition for the API

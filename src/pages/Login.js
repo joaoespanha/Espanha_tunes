@@ -28,6 +28,8 @@ class Login extends React.Component {
 
     await createUser(loginObj);
     history.push('/search');
+
+    this.changeLoading();
   };
 
   onLoginInputChange = ({ target }) => {
