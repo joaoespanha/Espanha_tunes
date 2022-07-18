@@ -37,7 +37,6 @@ class App extends React.Component {
             render={ (props) => (<Login
               { ... props }
               handleInputChange={ handleInputChange }
-              loading={ loading }
               changeLoading={ this.changeLoading }
             />) }
           />
