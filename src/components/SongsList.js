@@ -46,7 +46,6 @@ class SongsList extends React.Component {
 SongsList.propTypes = {
   arryOfAlbums: PropTypes.arrayOf(Object),
   artistName: PropTypes.string,
-  artworkUrl60: PropTypes.string,
 }.isRequired;
 
 export default SongsList;
