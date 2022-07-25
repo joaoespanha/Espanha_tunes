@@ -5,7 +5,7 @@ import Search from './pages/Search';
 import Album from './pages/Album';
 import Favorites from './pages/Favorities';
 import Profile from './pages/Profile';
-import ProfileEdit from './ProfileEdit';
+import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './NotFound';
 
 class App extends React.Component {
