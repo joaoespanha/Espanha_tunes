@@ -43,8 +43,6 @@ class MusicCard extends React.Component {
     }
   } */
 
-  onCheckBoxChange = () => {};
-
   render() {
     const { music, addRemoveSongToFavorites, isFavorite } = this.props;
     // const { isFavorite } = this.state;
